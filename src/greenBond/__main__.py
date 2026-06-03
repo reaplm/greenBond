@@ -19,6 +19,15 @@ def main():
     
     # Loading the data
     green_benefit_df = load_data()
+    
+    # Print dataframe info
+    print(green_benefit_df.info())
+    print('---------------------Rows and Columns------------------------------')
+    print(f'Rows:{ green_benefit_df.shape[0]} x Columns:{green_benefit_df.shape[1]}\n')
+    
+    print('---------------------Target Class --------------------------------\n')
+    class_counts = green_benefit_df['ProjectImplementationProgress'].value_counts()
+    print(class_counts)
 
 if __name__ == "__main__":
     main()
