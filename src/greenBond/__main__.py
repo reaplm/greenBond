@@ -38,6 +38,10 @@ def main():
     
     # print(co2_df['ProjectImplementationProgress'].value_counts())
     
+    # Encode categorical
+    X, y = encode_categorical(co2_df)
+
+    
 
 if __name__ == "__main__":
     main()
