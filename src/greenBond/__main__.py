@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+from preprocess import *
 
 def load_data():
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -28,6 +29,11 @@ def main():
     print('---------------------Target Class --------------------------------\n')
     class_counts = green_benefit_df['ProjectImplementationProgress'].value_counts()
     print(class_counts)
+    
+    # Clean target variable
+    clean_df = clean_target(green_benefit_df)
+    
+    
 
 if __name__ == "__main__":
     main()
