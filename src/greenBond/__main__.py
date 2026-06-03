@@ -33,6 +33,10 @@ def main():
     # Clean target variable
     clean_df = clean_target(green_benefit_df)
     
+    # Filter CO2
+    co2_df = filter_co2(clean_df)
+    
+    # print(co2_df['ProjectImplementationProgress'].value_counts())
     
 
 if __name__ == "__main__":

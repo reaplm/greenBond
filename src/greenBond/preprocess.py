@@ -20,3 +20,7 @@ def clean_target(df):
     
     return df
     
+def filter_co2(df):  
+    # Filtering Carbon Emissions Data
+    return df[df['IndicatorName'].str.\
+                      contains('CO2|carbon|Carbon|CO₂', na=False, case=False)]
