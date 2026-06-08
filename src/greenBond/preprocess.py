@@ -78,4 +78,4 @@ def encode_categorical(df):
     for col in numeric_columns:
         feature_df = pd.concat([feature_df, df[col]], axis=1)
         
-    return feature_df, target_encoded
+    return feature_df, target_encoded, target_encoder
