@@ -1,9 +1,12 @@
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 def split_data(X, y):
     # Split the sample into 70% training and 30% test data
@@ -151,7 +154,7 @@ def plot_pc1_vs_pc2(X_train_scaled, X_test_scaled, y_train,
     
     ax2.legend(loc='lower left') 
     ax2.set_title('Outliers')
-    fig.savefig('pca_outliers.png', dpi=300, bbox_inches='tight')
+    fig.savefig( BASE_DIR / 'pca_outliers.png', dpi=300, bbox_inches='tight')
     
     # Clean up overlaps and render
     plt.tight_layout()

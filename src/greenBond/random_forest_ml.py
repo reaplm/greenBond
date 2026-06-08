@@ -1,10 +1,12 @@
 import numpy as np
+from pathlib import Path
 import matplotlib.pyplot as plt
 from sklearn.ensemble  import RandomForestClassifier
 from sklearn.metrics import (accuracy_score, precision_score, recall_score, 
                              f1_score, classification_report, confusion_matrix,
                              ConfusionMatrixDisplay)
 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 class TrainRandomForest:
     def __init__(self, X_train_scaled, X_test_scaled, y_train, y_test):
@@ -46,7 +48,7 @@ class TrainRandomForest:
         cm_display.plot()
         plt.xlabel('Predicted Label')
         plt.ylabel('True Label')
-        plt.savefig('confusion_matrix.png', dpi=300)
+        plt.savefig(BASE_DIR / 'confusion_matrix.png', dpi=300)
         plt.show()
         
     def calculate_metrics(self):
