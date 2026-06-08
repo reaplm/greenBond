@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
-from preprocess import *
+from preprocess import clean_target, filter_co2, encode_categorical
+from component_analysis import split_data,scale_xdata, calculate_covariance_matrix, plot_pc, plot_pc1_vs_pc2
 
 def load_data():
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -39,9 +40,22 @@ def main():
     # print(co2_df['ProjectImplementationProgress'].value_counts())
     
     # Encode categorical
-    X, y = encode_categorical(co2_df)
+    X, y, class_names = encode_categorical(co2_df)
+  
+    # PCA
+    # Split the data
+    X_train, X_test, y_train, y_test = split_data(X, y)
+    
+    # Scale
+    X_train_scaled, X_test_scaled = scale_xdata(X_train, X_test)
+    
+    # Eigendecomposition
+    eigen_vals, eigen_vecs, var_exp, cum_var_exp = calculate_covariance_matrix(X_train_scaled)
+    
+    plot_pc(var_exp, cum_var_exp)
+    plot_pc1_vs_pc2(X_train_scaled, X_test_scaled, y_train, 
+                    eigen_vals, eigen_vecs, class_names)
 
     
-
 if __name__ == "__main__":
     main()
