@@ -2,6 +2,7 @@ import pandas as pd
 from pathlib import Path
 from preprocess import clean_target, filter_co2, encode_categorical
 from component_analysis import split_data,scale_xdata, calculate_covariance_matrix, plot_pc, plot_pc1_vs_pc2
+from random_forest_ml import TrainRandomForest
 
 def load_data():
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -56,6 +57,12 @@ def main():
     plot_pc1_vs_pc2(X_train_scaled, X_test_scaled, y_train, 
                     eigen_vals, eigen_vecs, class_names)
 
+    # =========================================================================
+    #                 RANDOM FOREST
+    # =========================================================================
+    random_forest = TrainRandomForest( X_train_scaled, X_test_scaled, y_train, y_test)
+    random_forest.train_random_forest(eigen_vals, eigen_vecs)
+    random_forest.display_confusion_matrix()
     
 if __name__ == "__main__":
     main()
