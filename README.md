@@ -14,8 +14,11 @@ greenBond/
 │       ├── __init__.py              # Package initializer
 │       ├── __main__.py              # Entry point application script
 │       ├── preprocess.py            # Data loading, encoding, & scaling
-│       └── pca.py                   # Covariance calculation, PCA, & plotting
+│       ├── component_analysis.py    # Covariance calculation, PCA, & plotting
+|       └── random_forest_ml         # Random Forest Classifier
+├── classification_features.png      # Scree plot of principal components
 ├── pca_outliers.png                 # Exported side-by-side analysis plot
+├── confusion_matrix.png             # Confusion matrix
 └── README.md                        # Documentation
 ```
 
