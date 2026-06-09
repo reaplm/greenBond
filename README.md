@@ -50,7 +50,7 @@ python -m src.greenBond
 
 ---
 
-## Pipeline Overview
+## 📈 Pipeline Overview
 
 1. **Preprocessing (`preprocess.py`)**: 
    * Reads raw source variables dynamically using `pathlib`.
@@ -62,12 +62,17 @@ python -m src.greenBond
    * Projects components onto a side-by-side comparison layout mapping structural data variation versus extreme distance anomalies (95th percentile tracking).
 3. **Forecasting Model**:
 
+## 📊 Visual Output
 
-## Scree Plot
+### Scree Plot
 ![Scree Plot](Classification_features.png)
 
-## PC1 vs PC2 and Outliers
+### PC1 vs PC2 and Outliers
 When successfully executed, the script exports a high-resolution analysis chart named `pca_outliers.png` which isolates structural variation layouts against anomalous spatial data points:
 
 ![PCA Outlier Analysis](pca_outliers.png)
 
+### Confusion Matrix
+The confusion matrix shows that fifty projects were correctly predicted, however, two observations were misclassified as being in operation when they were actually still under construction.
+
+![Confusion Matrix](confusion_matrix.png)
