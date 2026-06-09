@@ -1,8 +1,8 @@
 import pandas as pd
 from pathlib import Path
-from preprocess import clean_target, filter_co2, encode_categorical
-from component_analysis import split_data,scale_xdata, calculate_covariance_matrix, plot_pc, plot_pc1_vs_pc2
-from random_forest_ml import TrainRandomForest
+from .preprocess import clean_target, filter_co2, encode_categorical
+from .component_analysis import split_data,scale_xdata, calculate_covariance_matrix, plot_pc, plot_pc1_vs_pc2
+from .random_forest_ml import TrainRandomForest
 
 def load_data():
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
