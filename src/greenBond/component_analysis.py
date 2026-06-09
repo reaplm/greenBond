@@ -63,7 +63,7 @@ def plot_pc(var_exp, cum_var_exp):
     plt.legend(loc = 'best')
     plt.tight_layout()
     plt.savefig(BASE_DIR / 'Classification_features.png', dpi = 300)
-    plt.show()
+    plt.show(block=False)
 
 """
 The two most important principal components were selected to construct the 
@@ -81,6 +81,7 @@ def plot_pc1_vs_pc2(X_train_scaled, X_test_scaled, y_train,
     eigen_pairs.sort(reverse=True)
     w = np.hstack((eigen_pairs[0][1][:, np.newaxis],
                    eigen_pairs[1][1][:, np.newaxis]))
+    print('\n---------------------Matrix W--------------------------------')
     print('Matrix W:\n', w)
     
     X_train_pca = X_train_scaled.dot(w)
@@ -158,7 +159,7 @@ def plot_pc1_vs_pc2(X_train_scaled, X_test_scaled, y_train,
     
     # Clean up overlaps and render
     plt.tight_layout()
-    plt.show()
+    plt.show(block=False)
 
 def print_loadings(X):
     # Display the loadings
