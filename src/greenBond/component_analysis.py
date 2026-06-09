@@ -62,7 +62,7 @@ def plot_pc(var_exp, cum_var_exp):
     plt.xlabel('Principal component index')
     plt.legend(loc = 'best')
     plt.tight_layout()
-    plt.savefig('Classification_features.png', dpi = 300)
+    plt.savefig(BASE_DIR / 'Classification_features.png', dpi = 300)
     plt.show()
 
 """
